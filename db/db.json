@@ -4,9 +4,22 @@
     { "id": 0, "nom": "coca cola 1L", "prix": 1.5 },
     { "id": 1, "nom": "Sandwich pain beurre", "prix": 1.5 }
   ],
+  "statuts": [
+    {"id":0, "nom":"creation"},
+    {"id":1, "nom":"valider"},
+    {"id":2, "nom":"construction"},
+    {"id":3, "nom":"attente retrait"},
+    {"id":4, "nom":"enlevé"}
+  ],
   "panier": [
     {
       "id": 0,
+      "statutId": 0,
+      "lastStatusAction": "2022-01-01T03:03",
+      "statusHistory": {
+        "statutId": 0,
+        "dateTime": "2022-01-01T03:03"
+      },
       "produits": [
         {
           "id": 1,

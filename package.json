@@ -1,0 +1,21 @@
+{
+  "name": "milant-panier",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx lite-server",
+    "json": "npx json-server -p 3002 db/db.json",
+    "start" : "npm test | npm run json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/champix56/milant-panier.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/champix56/milant-panier/issues"
+  },
+  "homepage": "https://github.com/champix56/milant-panier#readme"
+}

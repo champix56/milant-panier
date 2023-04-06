@@ -1,5 +1,5 @@
 {
-  "clients": [{ "id": 0, "nom": "dsb", "prenom": "alex" }],
+  "users": [{ "id": 0,"login":"a@a.aa","passhash":"a6f621782678072dd992f502217f6bf9",  "nom": "dsb", "prenom": "alex", "rightLevel":"client", "lastTOKEN":"" }],
   "produits": [
     { "id": 0, "nom": "coca cola 1L", "prix": 1.5 },
     { "id": 1, "nom": "Sandwich pain beurre", "prix": 1.5 }

@@ -1,0 +1,35 @@
+<style type="text/css">
+  #login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    height: 100%;
+    flex-direction: column;
+  }
+  #login > form > input {
+    margin-bottom: 10px;
+  }
+  #login > form {
+    display: flex;
+    flex-direction: column;
+  }
+  #login {
+    padding: 10px;
+    width: fit-content;
+    border: 1px solid black;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 10px 10px 25px grey;
+  }
+</style>
+<div id="login-container">
+    <h2>Connexion / inscription</h2>
+  <div id="login">
+    <form action="#">
+      <input placeholder="login" type="email" name="login" id="i_login" />
+      <input placeholder="mot de passe" type="password" name="password" id="i_password" />
+      <button class="btn btn-primary" type="submit">Connecter/inscrire</button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+{
+  "clients": [{ "id": 0, "nom": "dsb", "prenom": "alex" }],
+  "produits": [
+    { "id": 0, "nom": "coca cola 1L", "prix": 1.5 },
+    { "id": 1, "nom": "Sandwich pain beurre", "prix": 1.5 }
+  ],
+  "panier": [
+    {
+      "id": 0,
+      "produits": [
+        {
+          "id": 1,
+          "quant": 1
+        }
+      ]
+    }
+  ]
+}

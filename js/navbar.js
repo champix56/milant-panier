@@ -1,13 +1,16 @@
 import { disconnect, loadAsyncConnect } from "./connect.js";
 
 /**
- * fonction de chargement des events de
+ * fonction de chargement des events de navbar
  * @param {Element} navbarDivElement div element in html to load in
  */
-function loadNavbarEvents(navbarDivElement) {
+function loadNavbarEvents(navbarDivElement) { 
+    //deonnxion des liens pointant vers # de la navbar
+     navbarDivElement.querySelectorAll('a[href="#"]').forEach(e=>{
+            e.addEventListener('click',evt=>evt.preventDefault())
+        })
     navbarDivElement.querySelector("#disconnect").addEventListener('click',e=>{
         disconnect();
-        
         loadAsyncConnect();
     })
 }

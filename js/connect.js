@@ -1,37 +1,30 @@
-import { getCookie, MD5, REST_SERVER_ADR, setCookie } from "./commonVariables.js";
+import { getCookie, MD5, REST_SERVER_ADR, setCookie, wrapper } from "./commonVariables.js";
+import { manageRoutes } from "./index.js";
 import { loadAsyncProductList } from "./productList.js";
 
 let connectTemplate = undefined;
-
+let RedirectRoute=undefined;
 /**
  * network loading html template if not already loading and caching in var connetTemplate
- * @param {HTMLElement} wrapper node to wrap template in
+ * @param {String} initialRoute route to redirect after connect if is set
  */
-export function loadAsyncConnect() {
-    const wrapper=document.querySelector('#wrapper');
+export function loadAsyncConnect(initialRoute) {
+    RedirectRoute=initialRoute;
     history.pushState(null,null,'/connect');
-    const userCookie=getCookie('user');
-    if(undefined!=userCookie ){
-        try{
-            JSON.parse(userCookie).id;
-            loadAsyncProductList(wrapper);
-            return ;}catch(e){}
-    }
   if (undefined === connectTemplate) {
     fetch("/templates/connect.html")
       .then((r) => r.text())
       .then((h) => {
         connectTemplate = h;
-        loadConnectHTMLInElement(wrapper);
+        loadConnectHTMLInElement();
         return h;
       });
-  } else loadConnectHTMLInElement(wrapper);
+  } else loadConnectHTMLInElement();
 }
 /**
  * sync loading function to wrap connect template in node and add events
- * @param {HTMLElement} wrapper node to wrap in
  */
-function loadConnectHTMLInElement(wrapper) {
+function loadConnectHTMLInElement() {
   wrapper.innerHTML = connectTemplate;
   loadConnectEvents(wrapper);
 }
@@ -57,8 +50,9 @@ function connected(user) {
   window.user = user;
   //setcookie
   setCookie("user", JSON.stringify(user), 7);
- 
+manageRoutes(RedirectRoute);
   loadAsyncProductList(document.querySelector("#wrapper"));
+
 }
 function subscribe(login, password) {
   fetch(REST_SERVER_ADR + "/users", {

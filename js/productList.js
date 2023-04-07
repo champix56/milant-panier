@@ -1,26 +1,25 @@
 import { changeQuantityProductToCart } from "./cart.js";
-import { REST_SERVER_ADR } from "./commonVariables.js";
+import { REST_SERVER_ADR, wrapper } from "./commonVariables.js";
 let products = [];
 let productListTemplate;
 /**
  *
  * @param {HTMLElement} wrapper node to wrap template in
  */
-export function loadAsyncProductList(wrapper) {
+export function loadAsyncProductList() {
   if (undefined === productListTemplate) {
     fetch("/templates/produitsListe.html")
       .then((r) => r.text())
       .then((h) => {
         productListTemplate = h;
-        loadTemplate(wrapper);
+        loadTemplate();
       });
-  } else loadTemplate(wrapper);
+  } else loadTemplate();
 }
 /**
  * sync function to wrap content of list template
- * @param {HTMLElement} wrapper node to wrap in
  */
-function loadTemplate(wrapper) {
+function loadTemplate() {
   history.pushState(null, null, "/home");
   wrapper.innerHTML = productListTemplate;
   loadProductContent();

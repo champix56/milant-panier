@@ -2,6 +2,8 @@
  * REST serveur base adress for easy changing value
  */
 export const REST_SERVER_ADR='http://localhost:3002';
+export  const wrapper=document.querySelector('#wrapper');
+   
 /*
  * MD5 hash function 
  * @param {string} d string to convert and hash

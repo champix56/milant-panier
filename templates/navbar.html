@@ -28,32 +28,57 @@
       <!-- <button type="submit" class="btn btn-default">Submit</button> -->
     </form>
     <ul class="nav navbar-nav navbar-right">
-      <li ><a id="disconnect" href="#">disconnect</a></li>
+      <li><a id="disconnect" href="#">disconnect</a></li>
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown"
           >Panier <b class="caret"></b
         ></a>
         <ul class="dropdown-menu">
+          <style type="text/css">
+            .panier-produit {
+              padding-left: 8px;
+              padding-right: 8px;
+              width : 280px;
+            }
+            .produit-img {
+              max-width: 230px;
+              max-height: 64px;
+              width: auto;
+              height: auto;
+            }
+            .produit-content {
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+            }
+            .produit-datas{
+              padding: 5px;;
+            }
+          </style>
           <li class="panier-produit" id="produit-">
             <div>
-              <h5 class="produit-name">Produit-name</h5>
-              <img class="produit-img" src="https://lapatzza-bzh.fr/wp-content/uploads/2020/08/5449000000996_A1C1_s02-removebg-preview-450x450.png" alt="" />
-              <div class="produit-datas">
-                quant :<span class="produit-quant">XX</span><br />
-                <div class="produit-add-remove-icons">
-                  <img
+            
+              <div class="produit-content">
+                <img
+                  class="produit-img"
+                  src="https://lapatzza-bzh.fr/wp-content/uploads/2020/08/5449000000996_A1C1_s02-removebg-preview-450x450.png"
+                  alt=""
+                />
+                <div class="produit-datas">
+                  <h4 class="produit-name">Produit-name</h4>
+                  <div> quant :<span class="produit-quant">XX</span><img
                     class="produit-remove-icon"
                     src="/img/remove.svg"
                     alt=""
                   />
-                  <img class="produit-add-icon" src="/img/add.svg" alt="" />
+                  <img class="produit-add-icon" src="/img/add.svg" alt="" /></div>
                 </div>
               </div>
             </div>
           </li>
-          <li><a href="#">Another action</a></li>
-          <li><a href="#">Something else here</a></li>
-          <li><a href="#">Separated link</a></li>
+          <li><a href="#"> Montant Total : XX.XX€</a></li>
+          <li><a href="#">Valider ma commande</a></li>
+          <!-- <li><a href="#">Separated link</a></li> -->
         </ul>
       </li>
     </ul>

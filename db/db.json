@@ -1,8 +1,8 @@
 {
   "users": [{ "id": 0,"login":"a@a.aa","passhash":"a6f621782678072dd992f502217f6bf9",  "nom": "dsb", "prenom": "alex", "rightLevel":"client", "lastTOKEN":"" }],
   "produits": [
-    { "id": 0, "nom": "coca cola 1L", "prix": 1.5 },
-    { "id": 1, "nom": "Sandwich pain beurre", "prix": 1.5 }
+    { "id": 0, "nom": "coca cola 1L", "prix": 1.5, "image":"https://lapatzza-bzh.fr/wp-content/uploads/2020/08/5449000000996_A1C1_s02-removebg-preview-450x450.png" },
+    { "id": 1, "nom": "Sandwich pain beurre", "prix": 1.5, "image":"https://www.fournil-auvergnat.com/wp-content/uploads/2020/07/Jambon-blanc-beurre-5351.jpg" }
   ],
   "statuts": [
     {"id":0, "nom":"creation"},

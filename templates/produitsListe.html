@@ -1,8 +1,43 @@
+<style type="text/css">
+    #liste-produits{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-items: flex-start;
+        padding:5px;
+    }
+    .produit-in-liste>h3{
+        text-align: center;
+    }
+    .produit-in-liste>img{
+        max-width: 230px;
+              max-height: 15vh;
+              width: auto;
+              height: auto;
+    }
+    .produit-in-liste .prix::after{content:'€';display:inline}
+    .produit-in-liste .prix{
+        text-align: center;
+        font-size:23pt ;
+        color: skyblue;
+        font-weight: 900;
+    }
+    .produit-in-liste:hover{
+        background-color: beige;
+    }
+    .produit-in-liste{
+        width: 250px;
+        text-align: center;
+        border: 1px solid black;
+        border-radius: 7px;margin-bottom: 10px;
+        height:28vh;
+    }
+</style>
 <h2>Liste des produits disponibles</h2>
 <div id="liste-produits">
     <div class="produit-in-liste">
         <h3>ProduitName</h3>
         <img src="https://lapatzza-bzh.fr/wp-content/uploads/2020/08/5449000000996_A1C1_s02-removebg-preview-450x450.png" alt="">
-        <div>2.3€</div>
+        <div class="prix">2.3€</div>
     </div>
 </div>

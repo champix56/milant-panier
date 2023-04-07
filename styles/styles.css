@@ -1,18 +1,10 @@
 body{height: 98vh;}
 #wrapper{overflow-y: auto;height: calc(100% - 105px);}
 
-.panier-produit{
+/* .panier-produit{
     border-bottom: 1px solid grey;
 }
 .produit-datas{
     display: flex;
     flex-direction: column;
-}
-.produit-add-remove-icons
-{
-    width:50%;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-
-}
+} */

@@ -1,3 +1,4 @@
+import { changeQuantityProductToCart } from "./cart.js";
 import { REST_SERVER_ADR } from "./commonVariables.js";
 let products = [];
 let productListTemplate;
@@ -53,17 +54,12 @@ function makeAProductNode(baseNodeToClone, product) {
   produitElement.querySelector("h3").innerHTML = product.nom;
   produitElement.querySelector("img").src = product.image;
   produitElement.querySelector(".prix").innerHTML = product.prix.toFixed(2);
-  loadUniqueProduitEvent(produitElement);
+  produitElement.addEventListener('click',e=>{
+    if(confirm('Voulez vous ajouter ce produit au panier')){
+        changeQuantityProductToCart(product);
+        alert('produit ajouté');
+    }
+})
   return produitElement;
 }
-/**
- * add event on a product node from list
- * @param {HTMLElement} produitElement 
- */
-function loadUniqueProduitEvent(produitElement) {
-    produitElement.addEventListener('click',e=>{
-        if(confirm('Voulez vous ajouter ce produit au panier')){
-            alert('produit ajouté');
-        }
-    })
-}
+ 

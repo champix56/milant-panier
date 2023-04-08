@@ -1,13 +1,13 @@
-import { REST_SERVER_ADR } from "./commonVariables.js";
+import { getCookie, REST_SERVER_ADR } from "./commonVariables.js";
 
-let cart = { cartId: undefined, products: [] };
+let cart = { id: undefined, products: [] };
 
 /**
  * load last cart not fully finished for userId
  * @param {Number} userid
  */
 export function loadAsyncUnfinishedCart(userid) {
-  fetch(REST_SERVER_ADR + "/carts?&userId=" + userid)
+  fetch(REST_SERVER_ADR + "/paniers?&userId=" + userid)
     .then((r) => r.json())
     .then((arr) => console.log(arr));
 }
@@ -26,23 +26,35 @@ export function changeQuantityProductToCart(product, value = 1) {
     cart.products.push(product);
     addProductInCartDOM(product);
   }
+  syncCart();
 }
 /**
  * create a new empty cart in db for a user
  * @param {Number} userId
  */
-function createCart(userId) {
-  fetch(REST_SERVER_ADR + "/carts", {
+async function createCart() {
+  const userId = JSON.parse(getCookie("user")).id;
+  const promise = await fetch(REST_SERVER_ADR + "/paniers", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      body: JSON.stringify({ userId: userId }),
     },
-  }).then((r) => r.json());
+    body: JSON.stringify({
+      userId: userId,
+      statutId: 0,
+      lastStatusAction: new Date().toISOString(),
+      statusHistorys: [{ statutId: 0, dateTime: new Date().toISOString() }],
+      products: [],
+    }),
+  });
+  return await promise.json();
+  //.then((r) => r.json());
 }
 function refreshProductInCartDOM(productInCart) {
   const nodeProduct = document.querySelector("#produit-" + productInCart.id);
   nodeProduct.querySelector(".produit-quant").innerHTML = productInCart.quant;
+nodeProduct.parentElement.parentElement.querySelector('#cart-total').innerHTML=getTotalCart().toFixed(2);
+
 }
 function addProductInCartDOM(productInCart) {
   const panier = document.querySelector("#produit-").parentElement;
@@ -63,4 +75,35 @@ function addProductInCartDOM(productInCart) {
 
   panier.append(nodeToClone);
   refreshProductInCartDOM(productInCart);
+}
+async function syncCart() {
+  if (undefined === cart.id) {
+    const c = await createCart();
+    cart = { ...c, products: cart.products };
+  }
+  fetch(REST_SERVER_ADR + "/paniers/" + cart.id, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(cart),
+  });
+}
+export function cartClear() {
+  cart = { id: undefined, products: [] };
+}
+export function changeCartState(stateValue) {
+  if (undefined === cart.id) {
+    return;
+  }
+  cart.statutId = stateValue;
+  cart.lastStatusAction = new Date().toISOString();
+  cart.statusHistorys.push({
+    statutId: cart.statutId,
+    dateTime: cart.lastStatusAction,
+  });
+  syncCart();
+}
+export function getTotalCart() {
+  let total=0.0;
+  cart.products.map(e=>total+=(e.quant*e.prix))
+  return total;
 }

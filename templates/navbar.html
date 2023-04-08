@@ -28,6 +28,7 @@
       <!-- <button type="submit" class="btn btn-default">Submit</button> -->
     </form>
     <ul class="nav navbar-nav navbar-right">
+      <li><a id="cart-history" href="#">Mon historique paniers</a></li>
       <li><a id="disconnect" href="#">disconnect</a></li>
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown"
@@ -35,7 +36,7 @@
         ></a>
         <ul class="dropdown-menu">
           <style type="text/css">
-            .panier-produit {
+            #panier-produits {
               padding-left: 8px;
               padding-right: 8px;
               width : 280px;
@@ -55,10 +56,16 @@
               padding: 5px;;
             }
             #produit-{display: none;}
+            #cart-total::after{content : '€'; display: inline;}
+            #cart-total-row{
+              text-align: right;
+              font-weight: 900;
+              font-size: x-large;
+              border-bottom: 1px solid #ACACAC;
+            }
           </style>
-          <li class="panier-produit" id="produit-">
-            <div>
-            
+          <li id="panier-produits">
+            <div id="produit-">
               <div class="produit-content">
                 <img
                   class="produit-img"
@@ -77,8 +84,8 @@
               </div>
             </div>
           </li>
-          <li><a href="#"> Montant Total : XX.XX€</a></li>
-          <li><a href="#">Valider ma commande</a></li>
+          <li id="cart-total-row"><a href="#"> Montant Total : <span id="cart-total">XX.XX</span></a></li>
+          <li><a href="#" id="validate-cart" >Valider ma commande</a></li>
           <!-- <li><a href="#">Separated link</a></li> -->
         </ul>
       </li>

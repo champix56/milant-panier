@@ -4,12 +4,26 @@ let cart = { id: undefined, products: [] };
 
 /**
  * load last cart not fully finished for userId
- * @param {Number} userid
  */
-export function loadAsyncUnfinishedCart(userid) {
-  fetch(REST_SERVER_ADR + "/paniers?&userId=" + userid)
+export function loadAsyncUnfinishedCart() {
+  let user = getCookie("user");
+  if (undefined === user) {
+    return;
+  }
+  user = JSON.parse(user);
+  fetch(
+    REST_SERVER_ADR +
+      "/paniers?statutId=0&_sort=lastStatusAction&_order=desc&userId=" +
+      user.id
+  )
     .then((r) => r.json())
-    .then((arr) => console.log(arr));
+    .then((arr) => {
+      if (arr.length > 0) {
+        cart = arr[0];
+        cart.products.map(e=>addProductInCartDOM(e));
+        console.log(cart);
+      }
+    });
 }
 /**
  * change quantity or add a product in cart
@@ -53,8 +67,9 @@ async function createCart() {
 function refreshProductInCartDOM(productInCart) {
   const nodeProduct = document.querySelector("#produit-" + productInCart.id);
   nodeProduct.querySelector(".produit-quant").innerHTML = productInCart.quant;
-nodeProduct.parentElement.parentElement.querySelector('#cart-total').innerHTML=getTotalCart().toFixed(2);
-
+  nodeProduct.parentElement.parentElement.querySelector(
+    "#cart-total"
+  ).innerHTML = getTotalCart().toFixed(2);
 }
 function addProductInCartDOM(productInCart) {
   const panier = document.querySelector("#produit-").parentElement;
@@ -103,7 +118,7 @@ export function changeCartState(stateValue) {
   syncCart();
 }
 export function getTotalCart() {
-  let total=0.0;
-  cart.products.map(e=>total+=(e.quant*e.prix))
+  let total = 0.0;
+  cart.products.map((e) => (total += e.quant * e.prix));
   return total;
 }

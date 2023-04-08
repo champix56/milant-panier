@@ -1,3 +1,4 @@
+import { loadAsyncUnfinishedCart } from "./cart.js";
 import { getCookie } from "./commonVariables.js";
 import {
   loadAsyncConnect,
@@ -11,6 +12,7 @@ import { loadAsyncProductList } from "./productList.js";
  */
 addEventListener("DOMContentLoaded", () => {
   loadNavbar();
+  loadAsyncUnfinishedCart();
   manageRoutes();
 });
 export function manageRoutes(redirectRoute) {

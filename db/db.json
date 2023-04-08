@@ -99,12 +99,16 @@
     },
     {
       "userId": 0,
-      "statutId": 0,
-      "lastStatusAction": "2023-04-08T01:30:03.046Z",
+      "statutId": 1,
+      "lastStatusAction": "2023-04-08T01:41:36.908Z",
       "statusHistorys": [
         {
           "statutId": 0,
           "dateTime": "2023-04-08T01:30:03.046Z"
+        },
+        {
+          "statutId": 1,
+          "dateTime": "2023-04-08T01:41:36.908Z"
         }
       ],
       "products": [
@@ -120,12 +124,16 @@
     },
     {
       "userId": 0,
-      "statutId": 0,
-      "lastStatusAction": "2023-04-08T01:30:55.558Z",
+      "statutId": 1,
+      "lastStatusAction": "2023-04-08T01:41:28.762Z",
       "statusHistorys": [
         {
           "statutId": 0,
           "dateTime": "2023-04-08T01:30:55.558Z"
+        },
+        {
+          "statutId": 1,
+          "dateTime": "2023-04-08T01:41:28.762Z"
         }
       ],
       "products": [
@@ -141,12 +149,16 @@
     },
     {
       "userId": 0,
-      "statutId": 0,
-      "lastStatusAction": "2023-04-08T01:31:14.229Z",
+      "statutId": 1,
+      "lastStatusAction": "2023-04-08T01:41:14.695Z",
       "statusHistorys": [
         {
           "statutId": 0,
           "dateTime": "2023-04-08T01:31:14.229Z"
+        },
+        {
+          "statutId": 1,
+          "dateTime": "2023-04-08T01:41:14.695Z"
         }
       ],
       "products": [

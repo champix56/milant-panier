@@ -1,5 +1,6 @@
 import { cartClear, changeCartState, getTotalCart } from "./cart.js";
 import { loadAsyncCartHistory } from "./cartHistory.js";
+import { BASE_HTTP_WEB_URL } from "./commonVariables.js";
 import { disconnect, loadAsyncConnect } from "./connect.js";
 
 /**
@@ -41,7 +42,7 @@ function loadNavbarEvents(navbarDivElement) {
 export function loadNavbar() {
   let navbarDiv = document.querySelector("#navbar");
   //  je recupere le fichier contenant la structure de la navbar en async avec fetch
-  fetch("templates/navbar.html")
+  fetch(BASE_HTTP_WEB_URL+"/templates/navbar.html")
     .then((fluxReponse) => fluxReponse.text())
     .then((html) => {
       //attention les scripts dans du html prevenant d'un xhr/fetch ne sont pas executer

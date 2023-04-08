@@ -1,5 +1,5 @@
 import { changeQuantityProductToCart } from "./cart.js";
-import { REST_SERVER_ADR, wrapper } from "./commonVariables.js";
+import { BASE_HTTP_WEB_URL, REST_SERVER_ADR, wrapper } from "./commonVariables.js";
 let products = [];
 let productListTemplate;
 /**
@@ -8,7 +8,7 @@ let productListTemplate;
  */
 export function loadAsyncProductList() {
   if (undefined === productListTemplate) {
-    fetch("/templates/produitsListe.html")
+    fetch(BASE_HTTP_WEB_URL+"/templates/produitsListe.html")
       .then((r) => r.text())
       .then((h) => {
         productListTemplate = h;

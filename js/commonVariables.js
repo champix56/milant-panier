@@ -3,7 +3,9 @@
  */
 export const REST_SERVER_ADR='http://localhost:3002';
 export  const wrapper=document.querySelector('#wrapper');
-   
+//pour ton serveur wamp base du projet pour les chargement de page depuis un dossier dans www
+export const BASE_HTTP_WEB_URL ='/milant-panier';
+// export const BASE_HTTP_WEB_URL ='';
 /*
  * MD5 hash function 
  * @param {string} d string to convert and hash

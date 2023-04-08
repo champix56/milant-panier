@@ -1,10 +1,10 @@
-import { getCookie, REST_SERVER_ADR, wrapper } from "./commonVariables.js";
+import { BASE_HTTP_WEB_URL, getCookie, REST_SERVER_ADR, wrapper } from "./commonVariables.js";
 
 let cartHistoryTemplate = "";
 let cartHistories = [];
 export async function loadAsyncCartHistory() {
   if (cartHistoryTemplate === "") {
-    const promise = await fetch("/templates/cartHistory.html");
+    const promise = await fetch(BASE_HTTP_WEB_URL+"/templates/cartHistory.html");
     cartHistoryTemplate = await promise.text();
   }
   history.pushState(null, null, "/carthistories");

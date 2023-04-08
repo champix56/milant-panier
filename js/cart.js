@@ -7,7 +7,7 @@ let cart = { id: undefined, products: [] };
  */
 export function loadAsyncUnfinishedCart() {
   let user = getCookie("user");
-  if (undefined === user) {
+  if ("" === user) {
     return;
   }
   user = JSON.parse(user);

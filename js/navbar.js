@@ -1,4 +1,5 @@
 import { cartClear, changeCartState, getTotalCart } from "./cart.js";
+import { loadAsyncCartHistory } from "./cartHistory.js";
 import { disconnect, loadAsyncConnect } from "./connect.js";
 
 /**
@@ -16,6 +17,8 @@ function loadNavbarEvents(navbarDivElement) {
       disconnect();
       loadAsyncConnect();
     });
+     navbarDivElement
+     .querySelector("#cart-history").addEventListener('click',evt=>{evt.preventDefault();loadAsyncCartHistory();})
     navbarDivElement
     .querySelector("#validate-cart")
     .addEventListener("click", (e) => {

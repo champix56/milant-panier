@@ -1,0 +1,48 @@
+<style type="text/css">
+  #history- {
+    display: none;
+  }
+  #histories {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+  .history {
+    padding: 10px;
+    border: 1px solid black;
+    padding-top: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    min-width: 350px;
+  }
+  .history .products {
+    display: none;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+  .history .header {
+    border: 1px solid black;
+    background-color: aliceblue;
+    display: flex;
+    justify-content: space-between;
+  }
+</style>
+<h3>cart history</h3>
+<div id="histories">
+  <div class="history" id="history-">
+    <div class="header">
+      <div class="history-date">date</div>
+      <div class="history-state">state</div>
+      <div class="history-id">id</div>
+    </div>
+    <div class="products">
+      <div class="history-product">
+        <h3>nom</h3>
+        <h4>quant</h4>
+      </div>
+    </div>
+  </div>
+</div>
